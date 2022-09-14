@@ -1,25 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+import Data from './Components/data';
+import Cards from './Components/cards';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <div className="container-fluid pt-3 pb-5">
+        <h1 className="text-center mb-3">Pricing Table</h1>
+        <div className="row">
+          <div className="col">
+            <section className="pricing py-5">
+              <div className="container">
+                <div className="row">
+                  {Data.map((card) => {
+                    return (
+                      <>
+                        <Cards
+                          popularPlans={card}
+                          key={card}
+                        />
+                      </>
+                    )
+                  })}
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </>
+  )
 }
 
 export default App;
